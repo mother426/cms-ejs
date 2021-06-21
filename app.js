@@ -27,6 +27,14 @@ app.get('/contact', (req, res) => {
   res.render('contact', {contactContent: contactContent});
 });
 
+app.get('/compose', (req, res) => {
+  res.render('compose');
+});
+
+app.post('/compose', (req, res) => {
+  const input = req.body.input;
+  console.log("input: ", input)
+})
 
 app.listen(3000, function() {
   console.log("Server listening port http://localhost:3000");
