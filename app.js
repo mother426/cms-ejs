@@ -32,8 +32,8 @@ app.get('/compose', (req, res) => {
 });
 
 app.post('/compose', (req, res) => {
-  const input = req.body.input;
-  console.log("input: ", input)
+  const title = req.body.title;
+  console.log("title: ", title)
 })
 
 app.listen(3000, function() {
