@@ -32,9 +32,12 @@ app.get('/compose', (req, res) => {
 });
 
 app.post('/compose', (req, res) => {
-  const title = req.body.title;
-  console.log("title: ", title)
-})
+  const post = {
+    title: req.body.postTitle,
+    body: req.body.postBody
+  };
+  console.log("post: ", post);
+});
 
 app.listen(3000, function() {
   console.log("Server listening port http://localhost:3000");
