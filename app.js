@@ -31,12 +31,16 @@ app.get('/compose', (req, res) => {
   res.render('compose');
 });
 
+const posts = [];
+
 app.post('/compose', (req, res) => {
   const post = {
     title: req.body.postTitle,
     body: req.body.postBody
   };
-  console.log("post: ", post);
+  posts.push(post);
+  res.redirect('/');
+  console.log("posts array: ", posts);
 });
 
 app.listen(3000, function() {
