@@ -56,12 +56,18 @@ app.get("/posts/:postName", (req, res) => {
   });
 });
 
-app.get("/posts", (req, res) => {
-  res.render("posts", { posts: posts });
-});
+// app.get("/posts", (req, res) => {
+//   res.render("posts", { posts: posts });
+// });
 
-app.get("/post", (req, res) => {
-  res.render("post", { posts: posts });
+app.get("/post/:postId", (req, res) => {
+  const requestedPostId = req.params.postId;
+  Post.findOne({_id: requestedPostId }, (err, post) => {
+    res.render("post", {
+      title: post.title,
+      body: post.body
+    });
+  });
 });
 
 const postSchema = {
